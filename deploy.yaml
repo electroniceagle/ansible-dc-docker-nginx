@@ -1,0 +1,20 @@
+#!/usr/bin/env ansible-playbook -i inventory
+
+---
+
+- name: Provision the container
+  hosts: localhost
+  gather_facts: false
+  connection: local
+  vars:
+    web_repo: 'https://github.com/AnsibleDC/AutoDockIT.git'
+    web_zip: 'website.zip'
+
+  tasks:
+
+    - name: grab web content from github
+      git: repo={{ web_repo }} clone=yes dest=files depth=1
+
+    - name: unarchive the zip content
+      unarchive: src='files/{{ web_zip }}' dest=. copy=no
+
