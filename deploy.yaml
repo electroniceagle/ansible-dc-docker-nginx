@@ -2,7 +2,7 @@
 
 ---
 
-- name: Provision the container
+- name: make a docker container with nginx on mac os x
   hosts: localhost
   gather_facts: false
   connection: local
@@ -12,9 +12,23 @@
 
   tasks:
 
-    - name: grab web content from github
-      git: repo={{ web_repo }} clone=yes dest=files depth=1
+  - name: grab web content from github
+    git: repo={{ web_repo }} clone=yes dest=files depth=1
 
-    - name: unarchive the zip content
-      unarchive: src='files/{{ web_zip }}' dest=. copy=no
+  - name: unarchive the zip content to local files directory
+    unarchive:
+        src: "files/{{ web_zip }}"
+        dest: "{{ playbook_dir }}/files/"
 
+  - name: make a local docker container
+    local_action:
+      module: docker
+      name: nginx
+      image: nginx:latest
+      expose:
+        - 80
+      ports:
+        - "8880:80"
+      volumes:
+        - "{{ playbook_dir }}/files:/usr/share/nginx/html:ro"
+      tls_hostname: boot2docker
