@@ -57,15 +57,6 @@ https://virtualenvwrapper.readthedocs.org/en/latest/
 
 Note: There is a TLS support issue for the docker module, which has been resolved since Ansible 1.9.RC2 (https://github.com/ansible/ansible-modules-core/issues/657).
 
-
-## Edit the ansible_python_interpreter argument.
-
-1) If you are using a virtualenv, you need to set the ansible_python_interpreter to point to your environment.  Edit the inventory/localhost file:
-
-    $ more inventory/localhost
-    localhost ansible_python_interpreter=~/.virtualenvs/ansible-ec2-docker-nginx/bin/python
-
-
 ## Deploy and test the docker container
 
 1) Execute the deploy playbook:
