@@ -1,2 +1,2 @@
--e git+ssh://git@github.com/ansible/ansible.git@v1.9.0-0.2.rc2#egg=ansible
+ansible
 docker-py

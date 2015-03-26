@@ -50,12 +50,12 @@ Or, you can add this to your .bash_profile:
 1) I recommend installing virtualenvwrapper for managing virtual environments:
 https://virtualenvwrapper.readthedocs.org/en/latest/
 
-2) Install Ansible 1.9 and docker-py:
+2) Install Ansible > 1.9 and docker-py:
 
     pip install docker-py
-    pip install -e git+ssh://git@github.com/ansible/ansible.git@v1.9.0-0.2.rc2#egg=ansible
+    pip install ansible
 
-Note: There is a TLS support issue for the docker module, which has been resolved since Ansible 1.9.RC2 (https://github.com/ansible/ansible-modules-core/issues/657).
+Note: There is a TLS support issue for the docker module, which has been resolved since Ansible 1.9.RC2 (https://github.com/ansible/ansible-modules-core/issues/657).  
 
 ## Deploy and test the docker container
 

@@ -1051,16 +1051,11 @@ boot2docker up
 <h2 id="install-ansible-and-docker-dependencies"><a name="user-content-install-ansible-and-docker-dependencies" href="#install-ansible-and-docker-dependencies" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Install ansible and docker dependencies</h2>
 <p>1) I recommend installing virtualenvwrapper for managing virtual environments:<br />
 <a href="https://virtualenvwrapper.readthedocs.org/en/latest/">https://virtualenvwrapper.readthedocs.org/en/latest/</a></p>
-<p>2) Install Ansible 1.9 and docker-py:</p>
+<p>2) Install Ansible &gt; 1.9 and docker-py:</p>
 <pre><code>pip install docker-py
-pip install -e git+ssh://git@github.com/ansible/ansible.git@v1.9.0-0.2.rc2#egg=ansible
+pip install ansible
 </code></pre>
-<p>Note: There is a TLS support issue for the docker module, which has been resolved since Ansible 1.9.RC2 (<a href="https://github.com/ansible/ansible-modules-core/issues/657">https://github.com/ansible/ansible-modules-core/issues/657</a>).</p>
-<h2 id="edit-the-ansible_python_interpreter-argument"><a name="user-content-edit-the-ansible_python_interpreter-argument" href="#edit-the-ansible_python_interpreter-argument" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Edit the ansible_python_interpreter argument.</h2>
-<p>1) If you are using a virtualenv, you need to set the ansible_python_interpreter to point to your environment.  Edit the inventory/localhost file:</p>
-<pre><code>$ more inventory/localhost
-localhost ansible_python_interpreter=~/.virtualenvs/ansible-ec2-docker-nginx/bin/python
-</code></pre>
+<p>Note: There is a TLS support issue for the docker module, which has been resolved since Ansible 1.9.RC2 (<a href="https://github.com/ansible/ansible-modules-core/issues/657">https://github.com/ansible/ansible-modules-core/issues/657</a>).  </p>
 <h2 id="deploy-and-test-the-docker-container"><a name="user-content-deploy-and-test-the-docker-container" href="#deploy-and-test-the-docker-container" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Deploy and test the docker container</h2>
 <p>1) Execute the deploy playbook:</p>
 <pre><code>$ ./deploy.yaml
