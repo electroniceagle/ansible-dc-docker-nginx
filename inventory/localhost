@@ -1,1 +1,1 @@
-localhost ansible_python_interpreter=~/.virtualenvs/ansible-ec2-docker-nginx/bin/python
+localhost ansible_python_interpreter="/usr/bin/env python"
